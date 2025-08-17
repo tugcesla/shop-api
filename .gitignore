@@ -1,0 +1,66 @@
+# -------- Build çıktıları --------
+target/
+out/
+build/
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# -------- IDE dosyaları --------
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Spring Tool Suite / Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# -------- Maven yardımcı dosyaları --------
+# Wrapper JAR'ını sakla (ignore etme!)
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# -------- Log & geçici dosyalar --------
+*.log
+logs/
+spring.log
+
+# -------- İşletim sistemi çöpleri --------
+.DS_Store
+Thumbs.db
+
+# -------- Test/Coverage --------
+*.exec
+.jacoco/
+coverage/
+
+# -------- Ortam dosyaları / yerel config --------
+.env
+.env.*
+application-local.yml
+application-local.properties

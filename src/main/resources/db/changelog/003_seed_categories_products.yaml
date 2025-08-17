@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: seed-categories-products-003
+      author: you
+      changes:
+        - insert:
+            tableName: category
+            columns:
+              - column: { name: id, valueNumeric: 1 }
+              - column: { name: name, value: Electronics }
+        - insert:
+            tableName: category
+            columns:
+              - column: { name: id, valueNumeric: 2 }
+              - column: { name: name, value: Books }
+
+        - insert:
+            tableName: product
+            columns:
+              - column: { name: id, valueNumeric: 1 }
+              - column: { name: name, value: Laptop }
+              - column: { name: price, valueNumeric: 1500.00 }
+              - column: { name: category_id, valueNumeric: 1 }
+        - insert:
+            tableName: product
+            columns:
+              - column: { name: id, valueNumeric: 2 }
+              - column: { name: name, value: Novel }
+              - column: { name: price, valueNumeric: 65.90 }
+              - column: { name: category_id, valueNumeric: 2 }

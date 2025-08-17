@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-role-column-005
+      author: you
+      changes:
+        # 1) app_user'a role_id sütununu ekle (başta nullable)
+        - addColumn:
+            tableName: app_user
+            columns:
+              - column:
+                  name: role_id
+                  type: BIGINT
+
+        # 2) FK: app_user.role_id -> role.id
+        - addForeignKeyConstraint:
+            baseTableName: app_user
+            baseColumnNames: role_id
+            referencedTableName: role
+            referencedColumnNames: id
+            constraintName: fk_app_user_role
+            onDelete: RESTRICT
+
+        # 3) Var olan ilişkileri users_roles tablosundan taşı
+        - sql:
+            sql: |
+              UPDATE app_user u
+              SET role_id = ur.role_id
+              FROM users_roles ur
+              WHERE ur.user_id = u.id;
+
+        # 4) Artık role_id boş olmamalı
+        - addNotNullConstraint:
+            tableName: app_user
+            columnName: role_id
+            columnDataType: BIGINT
+
+        # 5) ManyToMany köprü tablosu gerekiyorsa kalsın; gerekmiyorsa sil
+        - dropTable:
+            tableName: users_roles
+            cascadeConstraints: true
