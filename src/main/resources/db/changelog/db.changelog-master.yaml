@@ -13,7 +13,7 @@ databaseChangeLog:
       file: db/changelog/006_add_slug_to_category.yaml
   - include:
       file: db/changelog/007_add_description_to_product.yaml
-  - include:
-      file: db/changelog/008_insert_roles.yaml
-  - include:
-       file: db/changelog/009_insert_admin_user.yaml
+  #- include:
+      #file: db/changelog/008_insert_roles.yaml
+  #- include:
+       #file: db/changelog/009_insert_admin_user.yaml
