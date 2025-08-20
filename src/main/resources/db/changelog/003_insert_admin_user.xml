@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.17.xsd">
+
+    <changeSet id="seed-admin" author="you">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sqlCheck expectedResult="0">
+                    select count(*) from app_user where email='abc@abc.com'
+                </sqlCheck>
+            </not>
+        </preConditions>
+
+        <insert tableName="app_user">
+            <column name="email" value="abc@abc.com"/>
+            <column name="username" value="admin"/>
+            <column name="password" value="admin"/>
+            <column name="role_id" valueComputed="(select id from role where name='ADMIN')"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

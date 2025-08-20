@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.17.xsd">
+
+<!-- Aynı klasördeki dosyaları dahil ediyoruz -->
+<include relativeToChangelogFile="true" file="001_create_tables.xml"/>
+<include relativeToChangelogFile="true" file="002_insert_roles.xml"/>
+<include relativeToChangelogFile="true" file="003_insert_admin_user.xml"/>
+<include relativeToChangelogFile="true" file="004_insert_categories.xml"/>
+<include relativeToChangelogFile="true" file="005_insert_products.xml"/>
+
+</databaseChangeLog>
